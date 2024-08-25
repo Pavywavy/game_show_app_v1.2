@@ -3,7 +3,6 @@ let phrase = document.getElementById("phrase");
 let resetButton = document.querySelector(".btn__reset");
 
 let missed = 0;
-let match = "null";
 
 //phrases
 
@@ -37,17 +36,31 @@ const phrases = [
         for (i = 0; i < randomPhrases.length; i++) {
             list.insertAdjacentHTML("afterbegin", `<li>${randomPhrases}</li>`);
             if (randomPhrases.textContent === " ") {
-                document.getElementById("space");
-                randomPhrases.classList.add("space");
+                document.querySelector(".space");
+                list.classList.add("space");
                } else {
-                document.getElementById("letter");
-                randomPhrases.classList.add("letter");
+                document.querySelector(".letter");
+                list.classList.add("letter");
                }; 
         };
    };
 
   const randomLetters = addPhraseToDisplay(randomPhrases);
 
-function checkLetter(buttonClick) {
-    allTheLetters = randomLetters.getElementById("letter");
+  // checks to see if letter matches
+const checkLetter = button => {
+    let allTheLetters = randomLetters.getElementById("letter");
+    let match = "null";
+    for (i = 0; i < allTheLetters.length; i++) {
+        if ( button === allTheLetters[i] ) {
+            allTheLetters.classList.add("show");
+            match = allTheLetters.textContent;
+        };
+        return match;
+    };
 }
+
+qwerty.addEventListener("click", e => {
+
+
+});
