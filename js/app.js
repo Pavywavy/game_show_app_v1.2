@@ -25,10 +25,7 @@ const phrases = [
         let randomPhrase = Math.floor(Math.random() * arr.length);
         return arr[randomPhrase].split("");
    };
-
    const randomPhrases = getRandomPhraseAsArray(phrases);
-
-   console.log(randomPhrases);
 
 // adds random letter from phrase to display
    const addPhraseToDisplay = (randomPhrases) => {
@@ -61,6 +58,4 @@ const checkLetter = button => {
 }
 
 qwerty.addEventListener("click", e => {
-
-
 });
