@@ -21,18 +21,19 @@ const phrases = [
    });
 
    // return a random phrase from an array
-   const getRandomPhraseAsArray = (arr) => {
+   const getRandomPhraseAsArray = arr => {
         let randomPhrase = Math.floor(Math.random() * arr.length);
         return arr[randomPhrase].split("");
    };
    const randomPhrases = getRandomPhraseAsArray(phrases);
 
+
 // adds random letter from phrase to display
-   const addPhraseToDisplay = (randomPhrases) => {
+   const addPhraseToDisplay = (arr) => {
         const list = document.querySelector("ul");
-        for (i = 0; i < randomPhrases.length; i++) {
-            list.insertAdjacentHTML("afterbegin", `<li>${randomPhrases}</li>`);
-            if (randomPhrases.textContent === " ") {
+        for (let i = 0; i < arr.length; i++) {
+            list.insertAdjacentHTML("afterbegin", `<li>${arr}</li>`);
+            if (arr.textContent === " ") {
                 document.querySelector(".space");
                 list.classList.add("space");
                } else {
@@ -58,4 +59,5 @@ const checkLetter = button => {
 }
 
 qwerty.addEventListener("click", e => {
+
 });
