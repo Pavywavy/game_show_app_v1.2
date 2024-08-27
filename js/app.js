@@ -35,7 +35,7 @@ const addPhraseToDisplay = (arr) => {
     const list = document.querySelector("ul");
     for (let i = 0; i < arr.length; i++) {
         const item = document.createElement("li");
-        if (arr[i].textContent === " ") {
+        if (arr[i] === " ") {
             list.append(item);
             document.querySelector(".space");
             item.classList.add("space");
