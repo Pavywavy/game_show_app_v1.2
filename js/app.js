@@ -1,6 +1,7 @@
 let qwerty = document.getElementById("qwerty");
 let phrase = document.getElementById("phrase");
-let resetButton = document.querySelector(".btn__reset");
+let resetButton = document.querySelector("#overlay");
+
 
 let missed = 0;
 
@@ -25,23 +26,27 @@ const phrases = [
         let randomPhrase = Math.floor(Math.random() * arr.length);
         return arr[randomPhrase].split("");
    };
+
    const randomPhrases = getRandomPhraseAsArray(phrases);
 
 
 // adds random letter from phrase to display
-   const addPhraseToDisplay = (arr) => {
-        const list = document.querySelector("ul");
-        for (let i = 0; i < arr.length; i++) {
-            list.insertAdjacentHTML("afterbegin", `<li>${arr}</li>`);
-            if (arr.textContent === " ") {
-                document.querySelector(".space");
-                list.classList.add("space");
-               } else {
-                document.querySelector(".letter");
-                list.classList.add("letter");
-               }; 
-        };
-   };
+const addPhraseToDisplay = (arr) => {
+    const list = document.querySelector("ul");
+    for (let i = 0; i < arr.length; i++) {
+        const item = document.createElement("li");
+        if (arr[i].textContent === " ") {
+            list.append(item);
+            document.querySelector(".space");
+            item.classList.add("space");
+           } else {
+            list.append(item);
+            document.querySelector(".letter");
+            item.classList.add("letter");
+           }; 
+    };
+    
+};
 
   const randomLetters = addPhraseToDisplay(randomPhrases);
 
