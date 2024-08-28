@@ -51,17 +51,17 @@ const addPhraseToDisplay = (arr) => {
   const randomLetters = addPhraseToDisplay(randomPhrases);
 
   // checks to see if letter matches
-const checkLetter = button => {
-    let allTheLetters = randomLetters.getElementById("letter");
+const checkLetter = (button) => {
+    let allTheLetters = document.querySelectorAll("li" > ".letter");
     let match = "null";
     for (i = 0; i < allTheLetters.length; i++) {
         if ( button === allTheLetters[i] ) {
             allTheLetters.classList.add("show");
             match = allTheLetters.textContent;
-        };
+        }; 
         return match;
     };
-}
+};
 
 qwerty.addEventListener("click", e => {
 
