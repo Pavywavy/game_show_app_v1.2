@@ -55,11 +55,11 @@ const checkLetter = (button) => {
     let allTheLetters = document.querySelectorAll("li" > ".letter");
     let match = "null";
     for (i = 0; i < allTheLetters.length; i++) {
-        if ( button === allTheLetters[i] ) {
+        if ( button.texContent === allTheLetters[i].textContent ) {
             allTheLetters.classList.add("show");
             match = allTheLetters.textContent;
+            return match;
         }; 
-        return match;
     };
 };
 
