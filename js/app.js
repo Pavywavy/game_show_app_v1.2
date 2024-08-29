@@ -35,14 +35,17 @@ const addPhraseToDisplay = arr => {
     const list = document.querySelector("ul");
     for (let i = 0; i < arr.length; i++) {
         const item = document.createElement("li");
+        console.log(item);
         if (arr[i] === " ") {
             list.append(item);
             document.querySelector(".space");
             item.classList.add("space");
+            item.innerText = `${arr[i]}`;
            } else {
             list.append(item);
             document.querySelector(".letter");
             item.classList.add("letter");
+            item.innerText = `${arr[i]}`;
            }; 
     };
     
@@ -53,14 +56,11 @@ const addPhraseToDisplay = arr => {
   // checks to see if letter matches
 const checkLetter = button => {
     let allTheLetters = document.querySelectorAll(".letter");
-    let match = "null";
+    let match = null;
     for (i = 0; i < allTheLetters.length; i++) {
-        if ( button.texContent === allTheLetters[i].textContent ) {
+        if ( button.textContent.toLowerCase() === allTheLetters[i].textContent.toLowerCase() ) {
             allTheLetters[i].classList.add("show");
             match = allTheLetters[i].textContent;
-            return match;
-        } else {
-            return match;
         };
     };
 };
@@ -75,6 +75,7 @@ qwerty.addEventListener("click", e => {
     let selectedLetter = checkLetter(e.target);
     if (selectedLetter !== randomLetters) {
         let lostHearts = document.querySelector(".tries").src = "images/lostHeart.png";
+        
         missed++;
     };
 });
