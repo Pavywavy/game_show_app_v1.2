@@ -31,7 +31,7 @@ const phrases = [
 
 
 // adds random letter from phrase to display
-const addPhraseToDisplay = (arr) => {
+const addPhraseToDisplay = arr => {
     const list = document.querySelector("ul");
     for (let i = 0; i < arr.length; i++) {
         const item = document.createElement("li");
@@ -51,18 +51,24 @@ const addPhraseToDisplay = (arr) => {
   const randomLetters = addPhraseToDisplay(randomPhrases);
 
   // checks to see if letter matches
-const checkLetter = (button) => {
-    let allTheLetters = document.querySelectorAll("li" > ".letter");
+const checkLetter = button => {
+    let allTheLetters = randomLetters.querySelectorAll(".letter");
     let match = "null";
     for (i = 0; i < allTheLetters.length; i++) {
         if ( button.texContent === allTheLetters[i].textContent ) {
-            allTheLetters.classList.add("show");
+            allTheLetters.classList.add(".show");
             match = allTheLetters.textContent;
             return match;
         }; 
     };
 };
 
+// event listener for on screen keyboard
 qwerty.addEventListener("click", e => {
-
+    if ( e.target.tagName === "BUTTON" || e.target.querySelector(".chosen") ) { 
+        e.target.classList.add("chosen");
+        e.target.style.disabled = true;
+        let letterFound = checkLetter(e.target)
+    };
+    
 });
