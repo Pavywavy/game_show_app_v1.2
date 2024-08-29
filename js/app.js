@@ -52,23 +52,29 @@ const addPhraseToDisplay = arr => {
 
   // checks to see if letter matches
 const checkLetter = button => {
-    let allTheLetters = randomLetters.querySelectorAll(".letter");
+    let allTheLetters = document.querySelectorAll(".letter");
     let match = "null";
     for (i = 0; i < allTheLetters.length; i++) {
         if ( button.texContent === allTheLetters[i].textContent ) {
-            allTheLetters.classList.add(".show");
-            match = allTheLetters.textContent;
+            allTheLetters[i].classList.add("show");
+            match = allTheLetters[i].textContent;
             return match;
-        }; 
+        } else {
+            return match;
+        };
     };
 };
 
+
 // event listener for on screen keyboard
 qwerty.addEventListener("click", e => {
-    if ( e.target.tagName === "BUTTON" || e.target.querySelector(".chosen") ) { 
+    if ( e.target.tagName === "BUTTON" ) { 
         e.target.classList.add("chosen");
         e.target.style.disabled = true;
-        let letterFound = checkLetter(e.target)
     };
-    
+    let selectedLetter = checkLetter(e.target);
+    if (selectedLetter !== randomLetters) {
+        let lostHearts = document.querySelector(".tries").src = "images/lostHeart.png";
+        missed++;
+    };
 });
