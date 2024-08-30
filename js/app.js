@@ -72,10 +72,10 @@ qwerty.addEventListener("click", e => {
         e.target.classList.add("chosen");
         e.target.style.disabled = true;
     };
-    let selectedLetter = checkLetter(e.target);
-    if (selectedLetter !== randomLetters) {
-        let lostHearts = document.querySelector(".tries").src = "images/lostHeart.png";
-        
+    let letterFound = checkLetter(e.target);
+    if (letterFound !== randomLetters) {
+        let lostHearts = document.querySelector(".tries");
+        lostHearts.src = "images/lostHeart.png";
         missed++;
     };
 });
