@@ -63,7 +63,7 @@ const checkLetter = button => {
             match = allTheLetters[i].textContent;
         };
     };
-    console.log(match);
+    return match;
 };
 
 
@@ -74,14 +74,17 @@ qwerty.addEventListener("click", e => {
             e.target.classList.add("chosen");
             e.target.style.disabled = true; 
 let letterFound = checkLetter(e.target);
-        if ( !letterFound ) {
-            const listOfHearts = document.querySelector("ol .tries");
-            console.log(listOfHearts);
+        if ( letterFound === null ) {
+            console.log(letterFound);
+            const listOfHearts = document.querySelector(".tries:first-child");
+            listOfHearts.remove();
             listOfHearts.firstElementChild.src = "images/lostHeart.png";
             missed++;
         };
     };
 });
+
+
 
             // let lostHearts = listOfHearts.insertAdjacentHTML(
             //     "afterbegin",
