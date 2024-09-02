@@ -75,10 +75,18 @@ qwerty.addEventListener("click", e => {
             e.target.style.disabled = true; 
 let letterFound = checkLetter(e.target);
         if ( letterFound === null ) {
-            console.log(letterFound);
-            const listOfHearts = document.querySelector(".tries:first-child");
-            listOfHearts.remove();
-            listOfHearts.firstElementChild.src = "images/lostHeart.png";
+            const totalHearts = document.querySelector("li.tries");
+            const lostHearts = document.querySelector("ol");
+            const item = document.createElement("li");
+            item.insertAdjacentHTML(
+                "afterbegin",
+                `<img src="images/lostHeart.png" height="35px" width="30px">`
+            );
+            totalHearts.parentNode.removeChild(totalHearts);
+            lostHearts.src = "images/lostHeart.png";
+            lostHearts.prepend(item);
+            console.log(totalHearts);
+            console.log(lostHearts);
             missed++;
         };
     };
@@ -86,7 +94,10 @@ let letterFound = checkLetter(e.target);
 
 
 
-            // let lostHearts = listOfHearts.insertAdjacentHTML(
-            //     "afterbegin",
-            //     `<li class="tries"><img src="images/lostHeart.png" height="35px" width="30px"></li>`
-            // );
+
+// const totalHearts = document.querySelector("ol");
+// const listOfHearts = document.querySelector(".tries:first-child");
+// const lostHearts = document.querySelector("img");
+// totalHearts.firstChild.src = "images/lostHeart.png";
+// listOfHearts.remove();
+// console.log(totalHearts, listOfHearts, lostHearts);
