@@ -2,6 +2,8 @@ let qwerty = document.getElementById("qwerty");
 let phrase = document.getElementById("phrase");
 let resetButton = document.querySelector(".btn__reset");
 let startButton = document.querySelector(".start");
+let winScreen = document.getElementById("overlay");
+let loseScreen = document.getElementById("overlay");
 let missed = 0;
 
 //phrases
@@ -66,6 +68,19 @@ const checkLetter = button => {
     return match;
 };
 
+// checkwin function to see if you win
+const letter = document.querySelectorAll(".letter");
+const show = document.querySelectorAll(".show");
+const winOrLoseStatement = document.querySelector(".title");
+const checkWin = () => {
+    if (letter.length === show.length) {
+        winScreen.style.display = "flex";
+        winOrLoseStatement.textContent = "You Win!";
+    } else if (missed >= 5) {
+        loseScreen.style.display = "flex";
+        winOrLoseStatement.textContent = "You lose!";
+    };
+};
 
 
 // event listener for on screen keyboard
@@ -89,18 +104,11 @@ let letterFound = checkLetter(e.target);
             lostHearts.prepend(item);
             console.log(totalHearts);
             console.log(lostHearts);
-            missed++;
+            missed += + 1;
         };
     };
     checkWin();
 });
 
-// checkwin function to see if you win
-const letter = document.querySelectorAll("li.letter");
-const show = document.querySelectorAll("li.show");
-
-const checkWin = () => {
-    if (show === letter) {
-
-    };
-};
+console.log(letter);
+console.log(show);
