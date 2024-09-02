@@ -1,8 +1,7 @@
 let qwerty = document.getElementById("qwerty");
 let phrase = document.getElementById("phrase");
-let resetButton = document.querySelector("#overlay");
-
-
+let resetButton = document.querySelector(".btn__reset");
+let startButton = document.querySelector(".start");
 let missed = 0;
 
 //phrases
@@ -15,10 +14,11 @@ const phrases = [
     "Salmon is fishy"
     ];
 
+    
 
 // on click hide start screen overlay
-   resetButton.addEventListener("click", () => {
-        resetButton.style.display = "none";
+   startButton.addEventListener("click", () => {
+        startButton.style.display = "none";
    });
 
    // return a random phrase from an array
@@ -74,6 +74,8 @@ qwerty.addEventListener("click", e => {
             e.target.classList.add("chosen");
             e.target.style.disabled = true; 
 let letterFound = checkLetter(e.target);
+
+//this if statement checks to see if the target button is equal to null/doesnt match the correct letter then removes a heart and adds a png of an empty heart
         if ( letterFound === null ) {
             const totalHearts = document.querySelector("li.tries");
             const lostHearts = document.querySelector("ol");
@@ -90,14 +92,15 @@ let letterFound = checkLetter(e.target);
             missed++;
         };
     };
+    checkWin();
 });
 
+// checkwin function to see if you win
+const letter = document.querySelectorAll("li.letter");
+const show = document.querySelectorAll("li.show");
 
+const checkWin = () => {
+    if (show === letter) {
 
-
-// const totalHearts = document.querySelector("ol");
-// const listOfHearts = document.querySelector(".tries:first-child");
-// const lostHearts = document.querySelector("img");
-// totalHearts.firstChild.src = "images/lostHeart.png";
-// listOfHearts.remove();
-// console.log(totalHearts, listOfHearts, lostHearts);
+    };
+};
