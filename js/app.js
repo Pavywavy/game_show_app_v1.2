@@ -79,6 +79,7 @@ const checkWin = () => {
     } else if (missed >= 5) {
         loseScreen.style.display = "flex";
         winOrLoseStatement.textContent = "You lose!";
+        resetButton.style.display = "none";
     };
 };
 
