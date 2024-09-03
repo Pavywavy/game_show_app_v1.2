@@ -69,13 +69,15 @@ const checkLetter = button => {
 };
 
 // checkwin function to see if you win
-const letter = document.querySelectorAll(".letter");
-const show = document.querySelectorAll(".show");
-const winOrLoseStatement = document.querySelector(".title");
+
 const checkWin = () => {
-    if (letter.length === show.length) {
+    const letter = document.querySelectorAll(".letter");
+    const show = document.querySelectorAll(".show");
+    const winOrLoseStatement = document.querySelector(".title");
+    if (letter.length == show.length) {
         winScreen.style.display = "flex";
         winOrLoseStatement.textContent = "You Win!";
+        resetButton.style.display = "none";
     } else if (missed >= 5) {
         loseScreen.style.display = "flex";
         winOrLoseStatement.textContent = "You lose!";
