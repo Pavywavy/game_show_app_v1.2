@@ -76,10 +76,12 @@ const checkWin = () => {
     const winOrLoseStatement = document.querySelector(".title");
     if (letter.length == show.length) {
         winScreen.style.display = "flex";
+        winScreen.classList.add("win");
         winOrLoseStatement.textContent = "You Win!";
         resetButton.style.display = "none";
     } else if (missed >= 5) {
         loseScreen.style.display = "flex";
+        loseScreen.classList.add("lose");
         winOrLoseStatement.textContent = "You lose!";
         resetButton.style.display = "none";
     };
